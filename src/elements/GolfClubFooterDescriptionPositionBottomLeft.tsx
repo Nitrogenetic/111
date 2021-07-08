@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 
-function BottomLeft() {
+const GolfClubFooterDescriptionPositionBottomLeft: React.FC = () => {
 
     return (
         <>Promotions, new products and sales. Directly to your inbox.</>
     );
 }
 
-export default BottomLeft;
+export default GolfClubFooterDescriptionPositionBottomLeft;

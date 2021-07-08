@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useSiteMetadata} from "@hooks";
-import {FooterProps} from "@elements";
-import PaginationPage from "../PaginationPage";
-import Section from "../Section";
-import PaginationItems from "../PaginationItems";
-import SelectBlock from "../SelectBlock";
+import GolfClubBodyTopSection from "../GolfClubBodyTopSection";
+import GolfClubPaginationItems from "../GolfClubPaginationItems";
+import GolfClubBodyFilterSelectCheckboxies from "../GolfClubBodyFilterSelectCheckboxies";
 
 interface BodyProps {
     children: JSX.Element
@@ -16,10 +14,10 @@ function Body(props) {
 
     return (
         <div className={"body"}>
-            <Section/>
+            <GolfClubBodyTopSection/>
             <div className={"bodyMain"}>
-                <SelectBlock/>
-                <PaginationItems/>
+                <GolfClubBodyFilterSelectCheckboxies/>
+                <GolfClubPaginationItems/>
             </div>
         </div>
     );

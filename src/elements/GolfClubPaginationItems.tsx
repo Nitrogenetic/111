@@ -2,29 +2,19 @@ import React, {useContext, useEffect, useState} from 'react';
 import {gql, useQuery, ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client";
 import Pagination from "./Pagination";
 import {cache} from "@cache";
+import golfClubQuery from "../graphql/golfClubQuery";
 
-function PaginationItems(props) {
-    const query = gql`query Fetch($pagination: PaginationArgs! $filters:FilterArgs) {
-        paginateGolfClubModels(pagination: $pagination filters: $filters) {
-            content {
-                id
-                name
-                description
-                retailPrice
-                avatar
-            }
-            pagination {
-                pageSize
-                totalPages
-            }
-        }
-    }`
+interface GolfClubPaginationItemsProps {
+    minPrice: number
+    maxPrice: number
+}
+
+const GolfClubPaginationItems: React.FC<GolfClubPaginationItemsProps> = props => {
+    const [ minPrice, maxPrice ] = props
     const [page, setPage] = useState(1)
-    const {data, error} = useQuery(query, {
+    const {data, error} = useQuery(golfClubQuery, {
         variables: {pagination: {page: page, pageSize: 12}}
     })
-
-    const [ minPrice, maxPrice ] = props
 
     // useEffect(()=>{
     //     return(
@@ -36,28 +26,19 @@ function PaginationItems(props) {
     //     )
     // },[])
 
-    const filterQuery = gql`
-        query pagination ($pagination: PaginationArgs!) {
-            paginateGolfClubModels(pagination: $pagination) {
-                content {
-                    id
-                    name
-                    retailPrice
-                }
-            }
-        }
-    `
-    const { filter } = cache.data.data.readQuery({
-        query: filterQuery,
-        variables: {
-            pagination: {
-                page: 1,
-                pageSize: 12
-            }
-        }
-    })
+    // const filterQuery = gql``
 
-    console.log("Аполло Кеш: ", filter.paginateGolfClubModels.content.name)
+    // const { filter } = cache.data.data.readQuery({
+    //     query: filterQuery,
+    //     variables: {
+    //         pagination: {
+    //             page: 1,
+    //             pageSize: 12
+    //         }
+    //     }
+    // })
+    //
+    console.log("Аполло Кеш: ", cache.data.data)
 
     if (!data) return null;
     return (
@@ -76,7 +57,7 @@ function PaginationItems(props) {
                 })}
             </div>
             <Pagination
-                current={page} // и отправить current={page} в PaginationItems в {pagination: {page: 1, pageSize: 12}}
+                current={page} // и отправить current={page} в GolfClubPaginationItems в {pagination: {page: 1, pageSize: 12}}
                 totalPages={data.paginateGolfClubModels.pagination.totalPages}
                 onClick={setPage}
             />
@@ -84,4 +65,4 @@ function PaginationItems(props) {
     );
 }
 
-export default PaginationItems;
+export default GolfClubPaginationItems;

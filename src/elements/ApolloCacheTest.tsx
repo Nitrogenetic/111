@@ -6,7 +6,11 @@ const client = new ApolloClient({
     cache: new InMemoryCache("options")
 });
 
-function ApolloTestCache(props) {
+interface ApolloTestCacheProps {
+    children: JSX.Element
+}
+
+const ApolloTestCache: React.FC<ApolloTestCacheProps> = props => {
     const {children} = props
 
     return (

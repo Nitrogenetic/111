@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {useSiteMetadata} from "@hooks";
-import {FooterProps} from "@elements";
-import HeaderButton from "../elements/HeaderButton";
+import GolfClubHeaderButton from "./GolfClubHeaderButton";
 
-function HeaderInput() {
+const GolfClubHeaderMainInput: React.FC = () => {
     const [value, setValue] = useState('');
 
     return (
@@ -14,10 +12,10 @@ function HeaderInput() {
             </svg>
 
             <input type="text" className={"headerInput"} placeholder={"Amet minim mollit "} onChange={(e) => setValue(e.target.value)}/>
-                <HeaderButton value={value}>Search</HeaderButton>
+                <GolfClubHeaderButton value={value}>Search</GolfClubHeaderButton>
             {/*</form>*/}
         </div>
     )
 }
 
-export default HeaderInput;
+export default GolfClubHeaderMainInput;

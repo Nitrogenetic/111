@@ -1,9 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useSiteMetadata} from "@hooks";
-import {FooterProps} from "@elements";
-import Image from "./Image/Image";
-
-function Group() {
+const GolfClubHeaderTopLeftSmallLogo: React.FC = () => {
 
     return (
         <div>
@@ -12,4 +8,4 @@ function Group() {
     );
 }
 
-export default Group;
+export default GolfClubHeaderTopLeftSmallLogo;

@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
-import Select from "./Select";
+import GolfClubBodyFilterSelectTemplate from "./GolfClubBodyFilterSelectTemplate";
 
-function SelectBlock() {
+const GolfClubBodyFilterSelectCheckboxies: React.FC = () => {
 
     return (
         <div className={"selectBlock"}>
             <p className={"selectCategories"}>CATEGORIES</p>
-            <Select title={"PRICE"}>
+            <GolfClubBodyFilterSelectTemplate title={"PRICE"}>
                 <p><input type="checkbox" name={"PRICE"}/>Under $500</p>
                 <p><input type="checkbox" name={"PRICE"}/>$500 - $1000</p>
                 <p><input type="checkbox" name={"PRICE"}/>$1000 - $1500</p>
                 <p><input type="checkbox" name={"PRICE"}/>$1500 - $2000</p>
                 <p><input type="checkbox" name={"PRICE"}/>$2000 +</p>
-            </Select>
+            </GolfClubBodyFilterSelectTemplate>
         </div>
     );
 }
 
-export default SelectBlock;
+export default GolfClubBodyFilterSelectCheckboxies;

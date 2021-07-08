@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {useSiteMetadata} from "@hooks";
-import {FooterProps} from "@elements";
-import EnterEmailButton from "../elements/EnterEmailButton";
+import GolfClubFooterEnterEmailButton from "./GolfClubFooterEnterEmailButton";
 
-function EnterEmailInput() {
+const GolfClubFooterEnterEmailInput: React.FC = () => {
     const [value, setValue] = useState('');
 
     return (
@@ -11,10 +9,10 @@ function EnterEmailInput() {
             <p className={"enterEmailInputDescription"}>Enter you email here:</p>
             {/*<form>*/}
             <input type="text" className={"enterEmailInput"} onChange={(e) => setValue(e.target.value)}/>
-            <EnterEmailButton value={value}>SUBSCRIBE</EnterEmailButton>
+            <GolfClubFooterEnterEmailButton value={value}>SUBSCRIBE</GolfClubFooterEnterEmailButton>
             {/*</form>*/}
         </div>
     )
 }
 
-export default EnterEmailInput;
+export default GolfClubFooterEnterEmailInput;

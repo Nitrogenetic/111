@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {useSiteMetadata} from "@hooks";
-import {FooterProps} from "@elements";
 
-interface FooterInfoProps {
+interface GolfClubFooterInfoParentBlockProps {
     topLeft: JSX.Element
     topRight: JSX.Element
     bottomLeft: JSX.Element
@@ -11,7 +9,7 @@ interface FooterInfoProps {
     FAQ: JSX.Element
 }
 
-function FooterInfo(props: FooterInfoProps) {
+const GolfClubFooterInfoParentBlock: React.FC<GolfClubFooterInfoParentBlockProps> = props => {
     const {topLeft, topRight, bottomLeft, bottomRight, enterEmailInput, FAQ} = props;
 
     return (
@@ -30,4 +28,4 @@ function FooterInfo(props: FooterInfoProps) {
     );
 }
 
-export default FooterInfo;
+export default GolfClubFooterInfoParentBlock;

@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import ApolloTestCache from "./ApolloCacheTest";
-import Pagination from "./Pagination";
 
 interface SelectProps {
     children: JSX.Element
     title: string
 }
 
-function Select(props:SelectProps) {
+const GolfClubBodyFilterSelectTemplate: React.FC<SelectProps> = (props) => {
     const {children, title} = props
 
     return (
@@ -17,10 +16,10 @@ function Select(props:SelectProps) {
                 {children}
             </div>
             <ApolloTestCache>
-                Data
+                SomeData
             </ApolloTestCache>
         </div>
     );
 }
 
-export default Select;
+export default GolfClubBodyFilterSelectTemplate;
